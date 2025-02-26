@@ -11,18 +11,18 @@
 #include <MQTTClient.h>
 #include <ArduinoJson.h>
 
-const char WIFI_SSID[] = "YOUR_WIFI_SSID";     // CHANGE TO YOUR WIFI SSID
-const char WIFI_PASSWORD[] = "YOUR_WIFI_PASSWORD";  // CHANGE TO YOUR WIFI PASSWORD
+const char WIFI_SSID[] = "test";     // CHANGE TO YOUR WIFI SSID
+const char WIFI_PASSWORD[] = "12345678";  // CHANGE TO YOUR WIFI PASSWORD
 
-const char MQTT_BROKER_ADRRESS[] = "test.mosquitto.org";  // CHANGE TO MQTT BROKER'S ADDRESS
+const char MQTT_BROKER_ADRRESS[] = "192.168.1.74";  // CHANGE TO MQTT BROKER'S ADDRESS
 const int MQTT_PORT = 1883;
-const char MQTT_CLIENT_ID[] = "YOUR-NAME-arduino-uno-r4";  // CHANGE IT AS YOU DESIRE
-const char MQTT_USERNAME[] = "";                        // CHANGE IT IF REQUIRED, empty if not required
-const char MQTT_PASSWORD[] = "";                        // CHANGE IT IF REQUIRED, empty if not required
+const char MQTT_CLIENT_ID[] = "arduino-uno-r4-wifi";  // CHANGE IT AS YOU DESIRE
+const char MQTT_USERNAME[] = "serverpod";                        // CHANGE IT IF REQUIRED, empty if not required
+const char MQTT_PASSWORD[] = "serverpod";                        // CHANGE IT IF REQUIRED, empty if not required
 
 // The MQTT topics that Arduino should publish/subscribe
-const char PUBLISH_TOPIC[] = "YOUR-NAME-arduino-uno-r4/loopback";    // CHANGE IT AS YOU DESIRE
-const char SUBSCRIBE_TOPIC[] = "YOUR-NAME-arduino-uno-r4/loopback";  // CHANGE IT AS YOU DESIRE
+const char PUBLISH_TOPIC[] = "arduino-uno-r4-wifi/loopback";    // CHANGE IT AS YOU DESIRE
+const char SUBSCRIBE_TOPIC[] = "arduino-uno-r4-wifi/loopback";  // CHANGE IT AS YOU DESIRE
 
 const int PUBLISH_INTERVAL = 5000;  // 5 seconds
 
@@ -32,7 +32,7 @@ MQTTClient mqtt = MQTTClient(256);
 unsigned long lastPublishTime = 0;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
 
   int status = WL_IDLE_STATUS;
   while (status != WL_CONNECTED) {
